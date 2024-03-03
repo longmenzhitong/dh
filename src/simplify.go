@@ -11,7 +11,7 @@ var ignoreKeywords = []string{
 	"INDEX", "UNIQUE INDEX", "KEY", "UNIQUE KEY", "create_time", "update_time",
 }
 
-func Simplify(path string) {
+func Simplify(path string) error {
 	sqls := ReadLinesFromPath(path)
 	handled := make([]string, 0)
 	var createTableLineNum int
@@ -43,7 +43,7 @@ func Simplify(path string) {
 		handled = append(handled, sql)
 	}
 
-	WriteLinesToClipboard(handled)
+	return WriteLinesToClipboard(handled)
 }
 
 func hasIngnoreKeyword(sql string) bool {

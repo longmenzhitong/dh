@@ -28,8 +28,7 @@ var importCmd = &cobra.Command{
 	Short: "Import SQL file and produce simplified SQL",
 	Long:  ``,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		dh.Simplify(argsToStr(args))
-		return nil
+		return dh.Simplify(argsToStr(args))
 	},
 }
 
